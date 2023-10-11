@@ -1,11 +1,7 @@
-from keras.src.optimizers.schedules import ExponentialDecay
-from keras.src.optimizers import Adam
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
 
 data = pd.DataFrame({
    'speed_vehicle': [60, 70, 75, 65, 55, 80],
@@ -18,11 +14,11 @@ y = np.array([1, 0, 0, 1, 1, 0])
 X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-model = keras.Sequential([
-    layers.Input(shape=(3,)),
-    layers.Dense(64, activation = 'relu'),
-    layers.Dense(64, activation  ='relu'),
-    layers.Dense(1, activation = 'sigmoid')
+model = tf.keras.Sequential([
+    tf.keras.layers.Input(shape=(3,)),
+    tf.keras.layers.Dense(64, activation = 'relu'),
+    tf.keras.layers.Dense(64, activation  ='relu'),
+    tf.keras.layers.Dense(1, activation = 'sigmoid')
   ]
 )
 
@@ -30,9 +26,9 @@ initial_learning_rate = 0.06
 decay_steps = 1000
 decay_rate = 0.9
 
-learning_rate_schedule = ExponentialDecay(initial_learning_rate, decay_steps, decay_rate)
+learning_rate_schedule = tf.optimizers.schedules.ExponentialDecay(initial_learning_rate, decay_steps, decay_rate)
 
-optimiser = Adam(learning_rate = learning_rate_schedule)
+optimiser = tf.keras.optimizers.Adam(learning_rate = learning_rate_schedule)
 
 model.compile(optimizer = optimiser, loss = 'binary_crossentropy', metrics=['accuracy'])
 
