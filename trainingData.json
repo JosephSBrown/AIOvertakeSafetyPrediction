@@ -1,0 +1,44 @@
+[
+    {
+      "speed_vehicle": 60,
+      "speed_oncoming_vehicle": 70,
+      "distance_oncoming_vehicle": 50,
+      "visibility": "good",
+      "safety": 1
+    },
+    {
+      "speed_vehicle": 70,
+      "speed_oncoming_vehicle": 65,
+      "distance_oncoming_vehicle": 60,
+      "visibility": "moderate",
+      "safety": 0
+    },
+    {
+      "speed_vehicle": 75,
+      "speed_oncoming_vehicle": 80,
+      "distance_oncoming_vehicle": 40,
+      "visibility": "poor",
+      "safety": 0
+    },
+    {
+      "speed_vehicle": 65,
+      "speed_oncoming_vehicle": 50,
+      "distance_oncoming_vehicle": 70,
+      "visibility": "good",
+      "safety": 1
+    },
+    {
+      "speed_vehicle": 55,
+      "speed_oncoming_vehicle": 60,
+      "distance_oncoming_vehicle": 55,
+      "visibility": "excellent",
+      "safety": 1
+    },
+    {
+      "speed_vehicle": 80,
+      "speed_oncoming_vehicle": 90,
+      "distance_oncoming_vehicle": 30,
+      "visibility": "moderate",
+      "safety": 0
+    }
+  ]

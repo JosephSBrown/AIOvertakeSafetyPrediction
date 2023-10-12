@@ -1,15 +1,11 @@
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
-data = pd.DataFrame({
-   'speed_vehicle': [60, 70, 75, 65, 55, 80],
-   'speed_oncoming_vehicle': [70, 65, 80, 50, 60, 90],
-   'distance_oncoming_vehicle': [50, 60, 40, 70, 55, 30],
-})
-X = data[['speed_vehicle', 'speed_oncoming_vehicle', 'distance_oncoming_vehicle']].values.astype('float32')
-y = np.array([1, 0, 0, 1, 1, 0])
+df = pd.read_json('trainingData.json')
+
+X = df[['speed_vehicle', 'speed_oncoming_vehicle', 'distance_oncoming_vehicle']].values.astype('float32')
+y = df['safety']
 
 X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
